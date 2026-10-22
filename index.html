@@ -196,7 +196,7 @@ var ACH=["Fairfield by Marriott market-entry pitch: A+ (9.5/10)","Scraped 1,200+
 var TOOLS=[["Looker Studio","Looker_idKkHKXysy_1.png"],["Google Sheets","google-sheets-new-icon-2026-png.jpg"],["Google Docs","google-docs-new-icon-2026-png.jpg"],["Word","microsoft-word-logo-png-svg.png"],["Excel","microsoft-excel-2025-icon-png-transparent.jpg"],["PowerPoint","microsoft-powerpoint-2025-icon-png-transparent.jpg"],["Canva","canva.jpg"],["Google Colab","png-transparent-google-colab-logo-tech-companies.png"],["Gemini","Google-Gemini-Logo-Transparent-thumb.png"],["Claude","claude-logo.png"], ["HuggingFace","Frame_118-Photoroom.png"]["Kaggle","Kaggle_logo.png"],["cURL Converter","curl.png"]];
 function toolHTML(t){return '<div class="tool"><div class="lg"><img src="images/tools/'+t[1]+'" alt="'+t[0]+' logo" loading="lazy"></div>'+t[0]+'</div>'}
 var $=function(s,r){return (r||document).querySelector(s)};
-$('#tl').innerHTML=TL.join('');$('#ach').innerHTML=ACH.map(function(a){return '<li>'+a+'</li>'}).join('');$('#cvh').innerHTML=ACH.map(function(a){return '<li>'+a+'</li>'}).join('');
+$('#tl').innerHTML=TOOLS.map(toolHTML).join('');$('#ach').innerHTML=ACH.map(function(a){return '<li>'+a+'</li>'}).join('');$('#cvh').innerHTML=ACH.map(function(a){return '<li>'+a+'</li>'}).join('');
 $('#cvp').innerHTML=PROJ.map(function(p){return '<li><b>'+p.t+'</b> <span class="mu">· '+p.c+' · '+p.tools.join(', ')+'<br>'+p.hl[0][0]+' '+p.hl[0][1]+'</span></li>'}).join('');
 function li(a){return a.map(function(x){return '<li>'+x+'</li>'}).join('')}
 function draw(f){$('#pj').innerHTML=PROJ.map(function(p,i){if(f!=='All'&&p.c!==f)return '';
