@@ -47,6 +47,8 @@ body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area
 .tool{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 8px;text-align:center;font-size:13.5px;border-radius:20px;background:var(--s1);border:1px solid var(--line);transition:.3s}
 .tool:hover{transform:translateY(-6px);background:var(--s2)}
 .tool svg{width:46px;height:46px;border-radius:12px;display:block}
+.tool .lg{width:60px;height:60px;border-radius:14px;background:#fff;padding:10px;display:flex;align-items:center;justify-content:center}
+.tool .lg img{width:100%;height:100%;object-fit:contain;display:block}
 .lang .row{margin:14px 0 4px;display:flex;justify-content:space-between;font-weight:600}
 .meter{height:6px;background:var(--s2);border-radius:9px;overflow:hidden}.meter i{display:block;height:100%;width:0;background:var(--gr);border-radius:9px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
 .in .meter i,.in.meter i{width:var(--w)}
@@ -191,16 +193,8 @@ var PROJ=[
  act:["Book Rapid Growth creators in Beauty and F&B for Q4/Q1 mega sales.","Coach over-posters to post less and sharpen the first 3 seconds.","Help creators open a TikTok Shop; projected 15–30% uplift in commission revenue (target, not measured)."],note:"Mock data: recommendations are targets, not measured results."}
 ];
 var ACH=["Fairfield by Marriott market-entry pitch: A+ (9.5/10)","Scraped 1,200+ reviews on Trip.com for coursework","PESTEL matrix cut screening time by 40%","Nescafé Decaf survey: 100+ responses in 7 days","Mayora: 8+ Kingfoodmart shelf audits","Led about 70% of 40+ course projects","Canva decks placed top 3 in class"];
-var G=function(n,b,i){return '<div class="tool"><svg viewBox="0 0 40 40" role="img" aria-label="'+n+'"><rect width="40" height="40" fill="'+b+'"/>'+i+'</svg>'+n+'</div>'};
-var W='fill="#fff"',T=function(s,x){return '<text x="20" y="'+(x||28)+'" text-anchor="middle" font-family="Inter,Arial" font-weight="800" font-size="'+s+'" fill="#fff">'};
-var TL=[G("Looker Studio","#4285f4",'<rect x="9" y="21" width="5" height="10" rx="1" '+W+'/><rect x="17.5" y="14" width="5" height="17" rx="1" '+W+'/><rect x="26" y="8" width="5" height="23" rx="1" '+W+' opacity=".7"/>'),
-G("Google Sheets","#0f9d58",'<rect x="10" y="9" width="20" height="22" rx="2" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 17h20M10 24h20M20 17v14" stroke="#fff" stroke-width="2"/>'),
-G("Google Docs","#4285f4",'<path d="M11 7h13l6 6v20H11z" '+W+'/><path d="M15 19h10M15 24h10M15 29h7" stroke="#4285f4" stroke-width="2"/>'),
-G("Word","#185abd",T(22)+'W</text>'),G("Excel","#107c41",T(22)+'X</text>'),G("PowerPoint","#d24726",T(22)+'P</text>'),
-G("Canva","#7d2ae8",'<defs><linearGradient id="cg" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#00c4cc"/><stop offset="1" stop-color="#7d2ae8"/></linearGradient></defs><rect width="40" height="40" fill="url(#cg)"/>'+T(15,25)+'Canva</text>'),
-G("Google Colab","#f9ab00",'<path d="M14 26a6 6 0 010-12M26 14a6 6 0 010 12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>'),
-G("Gemini","#15161c",'<defs><linearGradient id="gg" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#4f8bff"/><stop offset=".6" stop-color="#9b7bff"/><stop offset="1" stop-color="#ff7aa8"/></linearGradient></defs><path d="M20 6C21 14 26 19 34 20 26 21 21 26 20 34 19 26 14 21 6 20 14 19 19 14 20 6z" fill="url(#gg)"/>'),
-G("Claude","#d97757",'<g stroke="#fff" stroke-width="3.2" stroke-linecap="round"><path d="M20 8v24M8 20h24M11.5 11.5l17 17M28.5 11.5l-17 17"/></g>')];
+var TOOLS=[["Looker Studio","Looker_idKkHKXysy_1.png"],["Google Sheets","google-sheets-new-icon-2026-png.jpg"],["Google Docs","google-docs-new-icon-2026-png.jpg"],["Word","microsoft-word-logo-png-svg.png"],["Excel","microsoft-excel-2025-icon-png-transparent.jpg"],["PowerPoint","microsoft-powerpoint-2025-icon-png-transparent.jpg"],["Canva","canva.jpg"],["Google Colab","png-transparent-google-colab-logo-tech-companies.png"],["Gemini","Google-Gemini-Logo-Transparent-thumb.png"],["Claude","claude-logo.png"], ["HuggingFace","Frame_118-Photoroom.png"]["Kaggle","Kaggle_logo.png"],["cURL Converter","curl.png"]];
+function toolHTML(t){return '<div class="tool"><div class="lg"><img src="images/tools/'+t[1]+'" alt="'+t[0]+' logo" loading="lazy"></div>'+t[0]+'</div>'}
 var $=function(s,r){return (r||document).querySelector(s)};
 $('#tl').innerHTML=TL.join('');$('#ach').innerHTML=ACH.map(function(a){return '<li>'+a+'</li>'}).join('');$('#cvh').innerHTML=ACH.map(function(a){return '<li>'+a+'</li>'}).join('');
 $('#cvp').innerHTML=PROJ.map(function(p){return '<li><b>'+p.t+'</b> <span class="mu">· '+p.c+' · '+p.tools.join(', ')+'<br>'+p.hl[0][0]+' '+p.hl[0][1]+'</span></li>'}).join('');
